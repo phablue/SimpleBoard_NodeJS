@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link type='text/css' rel='stylesheet' href='./stylesheets/bootstrap.min.css' />
+  <title>SIMPLE APP</title>
+</head>
+<body>
+  <div class="container">
+    <h3>Edit Data</h3>
+    <form method="post">
+      <div>
+        <label class='control-label'>ID</label>
+        <input type="text" name="id" value="<%= data.id %>" disabled/>
+        <label class='control-label'>NAME</label>
+        <input type="text" name="name" value="<%= data.name %>" />
+        <label class='control-label'>MODEL NUMBER</label>
+        <input type="text" name="modelnumber" value="<%= data.modelnumber %>" />
+        <label class='control-label'>SERIES</label>
+        <input type="text" name="series" value="<%= data.series %>" />
+      </div>
+      <input type="submit" />
+    </form>
+  </div>
+</body>
+</html>

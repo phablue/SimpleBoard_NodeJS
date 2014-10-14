@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link type='text/css' rel='stylesheet' href='./stylesheets/bootstrap.min.css' />
+  <title>SIMPLE APP</title>
+</head>
+<body>
+  <div class="container">
+    <h3>Insert Page</h3>
+    <table>
+      <tr>
+        <th></th>
+        <th>NAME</th>
+        <th>MODEL NUMBER</th>
+        <th>SERIES</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @data.forEach(function (item, index) { %>
+      <tr>
+        <td></td>
+        <td><%= item.name %></td>
+        <td><%= item.modelnumber %></td>
+        <td><%= item.series %></td>
+        <td><a href='/show/<%= restaurant.id %>'>SHOW</a></td>
+        <td><a href='/edit/<%= restaurant.id %>'>EDIT</a></td>
+        <td><a href='/delete/<%= restaurant.id %>'>DELETE</a></td>
+      </tr>
+      <% }); %>
+    </table>
+  </div><br>
+  <a href='/new' id='new'>INSERT DATA</a>
+</body>
+</html>
