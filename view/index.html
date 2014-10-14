@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <link type='text/css' rel='stylesheet' href='./stylesheets/bootstrap.min.css' />
+  <link type='text/css' rel='stylesheet' href='../public/stylesheets/bootstrap.min.css' />
   <title>SIMPLE APP</title>
 </head>
 <body>
-  <div class="container">
-    <h3>Insert Page</h3>
-    <table>
+  <div class='container'>
+    <h2>Insert Page</h2>
+    <table class='table-striped'>
       <tr>
         <th></th>
         <th>NAME</th>
@@ -28,8 +28,8 @@
         <td><a href='/delete/<%= restaurant.id %>'>DELETE</a></td>
       </tr>
       <% }); %>
-    </table>
+    </table><br>
+    <a href='/new' id='new'>INSERT DATA</a>
   </div><br>
-  <a href='/new' id='new'>INSERT DATA</a>
 </body>
 </html>
