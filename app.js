@@ -36,7 +36,6 @@ app.get('/show/:id', function (req, res) {
     if (err) throw err;
     client.query('select * from products where id = ?', [req.param('id')],
       function (err, result) {
-        console.log(result);
         res.send(ejs.render(data, {data: result[0]}));
       });
   });
@@ -50,14 +49,11 @@ app.get('/new', function (req, res) {
 });
 
 app.post('/new', function (req, res) {
-  fs.readFile(dir+'new.html', 'utf8', function (err, data) {
-    var body = req.body();
+  var body = req.body;
 
-    if (err) throw err;
-    client.query('insert into products set *',
-      { name: body.name, modelnumber: body.modelnumber, series: body.series },
-      function () {
-        res.redirect('/show/' + body.id);
-      });
-  });
+  client.query('insert into products set ?',
+    { name: body.name, modelnumber: body.modelnumber, series: body.series },
+    function (err, result) {
+      res.redirect('/show/' + result.insertId);
+    });
 });
