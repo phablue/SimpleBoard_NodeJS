@@ -41,3 +41,23 @@ app.get('/show/:id', function (req, res) {
       });
   });
 });
+
+app.get('/new', function (req, res) {
+  fs.readFile(dir+'new.html', 'utf8', function (err, data) {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
+app.post('/new', function (req, res) {
+  fs.readFile(dir+'new.html', 'utf8', function (err, data) {
+    var body = req.body();
+
+    if (err) throw err;
+    client.query('insert into products set *',
+      { name: body.name, modelnumber: body.modelnumber, series: body.series },
+      function () {
+        res.redirect('/show/' + body.id);
+      });
+  });
+});
