@@ -1,9 +1,11 @@
-var ejs = require('ejs');
 var fs = require('fs');
+var ejs = require('ejs');
+var mysql = require('mysql');
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
-var mysql = require('mysql');
+
+var dir = __dirname + '/view/';
 
 var client = mysql.createConnection({
   user: 'root',
@@ -13,7 +15,7 @@ var client = mysql.createConnection({
 
 var app = express();
 
-app.use(app.Router());
+app.use(express.Router());
 app.use(bodyParser());
 
 http.createServer(app).listen(52273, function () {
@@ -21,10 +23,10 @@ http.createServer(app).listen(52273, function () {
 });
 
 app.get('/', function (req, res) {
-  fs.readFile('index.html', 'utf8', function (err, data) {
+  fs.readFile(dir+'index.html', 'utf8', function (err, data) {
     if (err) throw err;
-    client.query('select * from products;', function (err, result) {
-      res.send(data, ejs.render({data: result}));
+    client.query('select * from products', function (err, result) {
+      res.send(ejs.render(data, {data: result}));
     });
   });
 });

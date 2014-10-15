@@ -1,12 +1,11 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-  <link type='text/css' rel='stylesheet' href='../public/stylesheets/bootstrap.min.css' />
   <title>SIMPLE APP</title>
 </head>
 <body>
   <div class='container'>
-    <h2>Insert Page</h2>
+    <h2>Index Page</h2>
     <table class='table-striped'>
       <tr>
         <th></th>
@@ -17,15 +16,15 @@
         <th></th>
         <th></th>
       </tr>
-      <% @data.forEach(function (item, index) { %>
+      <% data.forEach(function (item, index) { %>
       <tr>
         <td></td>
         <td><%= item.name %></td>
         <td><%= item.modelnumber %></td>
         <td><%= item.series %></td>
-        <td><a href='/show/<%= restaurant.id %>'>SHOW</a></td>
-        <td><a href='/edit/<%= restaurant.id %>'>EDIT</a></td>
-        <td><a href='/delete/<%= restaurant.id %>'>DELETE</a></td>
+        <td><a href='/show/<%= item.id %>'>SHOW</a></td>
+        <td><a href='/edit/<%= item.id %>'>EDIT</a></td>
+        <td><a href='/delete/<%= item.id %>'>DELETE</a></td>
       </tr>
       <% }); %>
     </table><br>

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>SIMPLE APP</title>
+</head>
+<body>
+  <div class="container">
+    <h2>New Data</h2>
+    <form method="post">
+      <div>
+        <label class='control-label'>ID</label>
+        <input type="text" class="form-control" name="id" value="<%= data.id %>" disabled/><br>
+        <label class='control-label'>NAME</label>
+        <input type="text" class="form-control" name="name" value="<%= data.name %>" /><br>
+        <label class='control-label'>MODEL NUMBER</label>
+        <input type="text" class="form-control" name="modelnumber" value="<%= data.modelnumber %>" /><br>
+        <label class='control-label'>SERIES</label>
+        <input type="text" class="form-control"name="series" value="<%= data.series %>" /><br>
+      </div><br>
+      <input type="submit" class="btn btn-primary"/>
+    </form>
+  </div>
+</body>
+</html>
