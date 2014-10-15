@@ -6,9 +6,9 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 
 var client = mysql.createConnection({
-  user: 'root';
-  password: 'root';
-  database: 'Company';
+  user: 'root',
+  password: 'root',
+  database: 'Company'
 });
 
 var app = express();
