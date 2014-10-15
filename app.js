@@ -64,3 +64,23 @@ app.post('/new', function (req, res) {
       res.redirect('/show/' + result.insertId);
     });
 });
+
+app.get('/edit/:id', function (req, res) {
+  fs.readFile(dir+'edit.html', 'utf8', function (err, data) {
+    if (err) throw err;
+    client.query('select * from products where id = ?', [req.param('id')],
+      function (err, result) {
+        res.send(ejs.render(data, {data: result[0]}));
+      });
+  });
+});
+
+app.post('/edit/:id', function (req, res) {
+  var body = req.body;
+
+  client.query('update products set ? where id =' + req.param('id'),
+    { name: body.name, modelnumber: body.modelnumber, series: body.series },
+    function (err, result) {
+      res.redirect('/show/' + req.param('id'));
+    });
+});
