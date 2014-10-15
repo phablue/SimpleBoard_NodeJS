@@ -30,3 +30,14 @@ app.get('/', function (req, res) {
     });
   });
 });
+
+app.get('/show/:id', function (req, res) {
+  fs.readFile(dir+'show.html', 'utf8', function (err, data) {
+    if (err) throw err;
+    client.query('select * from products where id = ?', [req.param('id')],
+      function (err, result) {
+        console.log(result);
+        res.send(ejs.render(data, {data: result[0]}));
+      });
+  });
+});
