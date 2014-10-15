@@ -41,6 +41,13 @@ app.get('/show/:id', function (req, res) {
   });
 });
 
+app.get('/delete/:id', function (req, res) {
+  client.query('delete from products where id = ?', [req.param('id')],
+    function () {
+      res.redirect('/');
+    });
+});
+
 app.get('/new', function (req, res) {
   fs.readFile(dir+'new.html', 'utf8', function (err, data) {
     if (err) throw err;
