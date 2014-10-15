@@ -4,20 +4,20 @@
   <title>SIMPLE APP</title>
 </head>
 <body>
-  <div class="container">
+  <div>
     <h2>Edit Data</h2>
     <form method="post">
       <div>
-        <label class='control-label'>ID</label>
-        <input type="text" class="form-control" name="id" value="<%= data.id %>" disabled/><br>
+        <label>ID</label>
+        <input type="text" name="id" value="<%= data.id %>" disabled/><br>
         <label class='control-label'>NAME</label>
-        <input type="text" class="form-control" name="name" value="<%= data.name %>" /><br>
-        <label class='control-label'>MODEL NUMBER</label>
-        <input type="text" class="form-control" name="modelnumber" value="<%= data.modelnumber %>" /><br>
-        <label class='control-label'>SERIES</label>
-        <input type="text" class="form-control"name="series" value="<%= data.series %>" /><br>
+        <input type="text" name="name" value="<%= data.name %>" /><br>
+        <label>MODEL NUMBER</label>
+        <input type="text" name="modelnumber" value="<%= data.modelnumber %>" /><br>
+        <label>SERIES</label>
+        <input type="text" name="series" value="<%= data.series %>" /><br>
       </div><br>
-      <input type="submit" class="btn btn-primary"/>
+      <input type="submit" />
     </form>
   </div>
 </body>
